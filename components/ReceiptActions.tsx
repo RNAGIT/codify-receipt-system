@@ -134,11 +134,11 @@ export default function ReceiptActions({ receipt }: ReceiptActionsProps) {
   return (
     <>
       {/* Action Buttons */}
-      <div className="flex flex-wrap gap-4 justify-center mb-6 no-print">
+      <div className="flex flex-wrap gap-2 sm:gap-3 md:gap-4 justify-center mb-4 md:mb-6 no-print">
         <button
           onClick={handlePrint}
           disabled={isLoading}
-          className="px-6 py-3 bg-primary-black text-white rounded-lg font-semibold hover:bg-gray-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+          className="flex-1 sm:flex-none px-4 py-2 md:px-6 md:py-3 bg-primary-black text-white rounded-lg font-semibold hover:bg-gray-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 text-sm md:text-base"
         >
           <svg
             className="w-5 h-5"
@@ -159,7 +159,7 @@ export default function ReceiptActions({ receipt }: ReceiptActionsProps) {
         <button
           onClick={handleDownloadPDF}
           disabled={isLoading}
-          className="px-6 py-3 bg-primary-yellow text-primary-black rounded-lg font-semibold hover:bg-yellow-400 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+          className="flex-1 sm:flex-none px-4 py-2 md:px-6 md:py-3 bg-primary-yellow text-primary-black rounded-lg font-semibold hover:bg-yellow-400 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 text-sm md:text-base"
         >
           <svg
             className="w-5 h-5"
@@ -180,7 +180,7 @@ export default function ReceiptActions({ receipt }: ReceiptActionsProps) {
         <button
           onClick={handleSendEmail}
           disabled={isLoading || !receipt.clientEmail}
-          className="px-6 py-3 bg-primary-black text-white rounded-lg font-semibold hover:bg-gray-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+          className="flex-1 sm:flex-none px-4 py-2 md:px-6 md:py-3 bg-primary-black text-white rounded-lg font-semibold hover:bg-gray-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 text-sm md:text-base"
         >
           <svg
             className="w-5 h-5"
@@ -201,7 +201,7 @@ export default function ReceiptActions({ receipt }: ReceiptActionsProps) {
         <button
           onClick={handleSaveReceipt}
           disabled={isLoading}
-          className="px-6 py-3 bg-gray-200 text-primary-black rounded-lg font-semibold hover:bg-gray-300 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+          className="flex-1 sm:flex-none px-4 py-2 md:px-6 md:py-3 bg-gray-200 text-primary-black rounded-lg font-semibold hover:bg-gray-300 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 text-sm md:text-base"
         >
           <svg
             className="w-5 h-5"
@@ -223,13 +223,13 @@ export default function ReceiptActions({ receipt }: ReceiptActionsProps) {
       {/* Message Display */}
       {message && (
         <div
-          className={`mb-4 p-4 rounded-lg ${
+          className={`mb-4 p-3 md:p-4 rounded-lg ${
             message.type === 'success'
               ? 'bg-green-100 text-green-800 border border-green-300'
               : 'bg-red-100 text-red-800 border border-red-300'
           }`}
         >
-          <p className="font-medium">{message.text}</p>
+          <p className="font-medium text-sm md:text-base break-words">{message.text}</p>
         </div>
       )}
 

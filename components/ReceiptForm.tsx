@@ -206,15 +206,15 @@ export default function ReceiptForm({
   }
 
   return (
-    <div className="w-full max-w-2xl mx-auto p-6 bg-white rounded-lg shadow-lg">
-      <h2 className="text-2xl font-bold mb-6 text-primary-black">
+    <div className="w-full max-w-2xl mx-auto p-4 md:p-6 bg-white rounded-lg shadow-lg">
+      <h2 className="text-xl md:text-2xl font-bold mb-4 md:mb-6 text-primary-black">
         Create Receipt / Invoice
       </h2>
 
-      <div className="space-y-6">
+      <div className="space-y-4 md:space-y-6">
         {/* Client Information */}
-        <div className="space-y-4">
-          <h3 className="text-lg font-semibold text-primary-black border-b border-gray-200 pb-2">
+        <div className="space-y-3 md:space-y-4">
+          <h3 className="text-base md:text-lg font-semibold text-primary-black border-b border-gray-200 pb-2">
             Client Information
           </h3>
 
@@ -227,7 +227,7 @@ export default function ReceiptForm({
               name="clientName"
               value={formData.clientName || ''}
               onChange={handleInputChange}
-              className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-yellow ${
+              className={`w-full px-3 md:px-4 py-2 text-sm md:text-base border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-yellow ${
                 errors.clientName ? 'border-red-500' : 'border-gray-300'
               }`}
               placeholder="Enter client name"
@@ -246,7 +246,7 @@ export default function ReceiptForm({
               name="clientEmail"
               value={formData.clientEmail || ''}
               onChange={handleInputChange}
-              className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-yellow ${
+              className={`w-full px-3 md:px-4 py-2 text-sm md:text-base border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-yellow ${
                 errors.clientEmail ? 'border-red-500' : 'border-gray-300'
               }`}
               placeholder="client@example.com"
@@ -258,8 +258,8 @@ export default function ReceiptForm({
         </div>
 
         {/* Project Information */}
-        <div className="space-y-4">
-          <h3 className="text-lg font-semibold text-primary-black border-b border-gray-200 pb-2">
+        <div className="space-y-3 md:space-y-4">
+          <h3 className="text-base md:text-lg font-semibold text-primary-black border-b border-gray-200 pb-2">
             Project Information
           </h3>
 
@@ -272,7 +272,7 @@ export default function ReceiptForm({
               name="projectTitle"
               value={formData.projectTitle || ''}
               onChange={handleInputChange}
-              className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-yellow ${
+              className={`w-full px-3 md:px-4 py-2 text-sm md:text-base border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-yellow ${
                 errors.projectTitle ? 'border-red-500' : 'border-gray-300'
               }`}
               placeholder="Enter project title"
@@ -282,7 +282,7 @@ export default function ReceiptForm({
             )}
           </div>
 
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">
                 Receipt Number
@@ -292,7 +292,7 @@ export default function ReceiptForm({
                 name="receiptNumber"
                 value={formData.receiptNumber || ''}
                 onChange={handleInputChange}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-yellow bg-gray-50"
+                className="w-full px-3 md:px-4 py-2 text-sm md:text-base border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-yellow bg-gray-50"
                 readOnly
               />
             </div>
@@ -306,7 +306,7 @@ export default function ReceiptForm({
                 name="issueDate"
                 value={formData.issueDate || ''}
                 onChange={handleInputChange}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-yellow"
+                className="w-full px-3 md:px-4 py-2 text-sm md:text-base border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-yellow"
               />
             </div>
           </div>
@@ -319,7 +319,7 @@ export default function ReceiptForm({
               name="paymentStatus"
               value={formData.paymentStatus || 'Pending'}
               onChange={handleInputChange}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-yellow"
+              className="w-full px-3 md:px-4 py-2 text-sm md:text-base border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-yellow"
             >
               <option value="Pending">Pending</option>
               <option value="Partial">Partial</option>
@@ -329,15 +329,15 @@ export default function ReceiptForm({
         </div>
 
         {/* Items */}
-        <div className="space-y-4">
-          <div className="flex justify-between items-center">
-            <h3 className="text-lg font-semibold text-primary-black border-b border-gray-200 pb-2">
+        <div className="space-y-3 md:space-y-4">
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
+            <h3 className="text-base md:text-lg font-semibold text-primary-black border-b border-gray-200 pb-2 w-full sm:w-auto">
               Items
             </h3>
             <button
               type="button"
               onClick={addItem}
-              className="px-4 py-2 bg-primary-yellow text-primary-black rounded-lg font-medium hover:bg-yellow-400 transition-colors"
+              className="px-4 py-2 bg-primary-yellow text-primary-black rounded-lg font-medium hover:bg-yellow-400 transition-colors text-sm md:text-base whitespace-nowrap"
             >
               + Add Item
             </button>
@@ -347,22 +347,22 @@ export default function ReceiptForm({
             {formData.items?.map((item, index) => (
               <div
                 key={item.id}
-                className="p-4 border border-gray-200 rounded-lg bg-gray-50"
+                className="p-3 md:p-4 border border-gray-200 rounded-lg bg-gray-50"
               >
                 <div className="flex gap-2 items-start">
-                  <div className="flex-1">
+                  <div className="flex-1 min-w-0">
                     <textarea
                       value={item.description}
                       onChange={(e) =>
                         handleItemChange(item.id, e.target.value)
                       }
                       rows={3}
-                      className={`w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-primary-yellow resize-y break-words overflow-wrap-anywhere ${
+                      className={`w-full px-3 py-2 text-sm md:text-base border rounded focus:outline-none focus:ring-2 focus:ring-primary-yellow resize-y break-words overflow-wrap-anywhere ${
                         errors[`item-${index}-description`]
                           ? 'border-red-500'
                           : 'border-gray-300'
                       }`}
-                      placeholder="Enter item description (supports long descriptions and long words)"
+                      placeholder="Enter item description"
                       style={{ wordBreak: 'break-word', overflowWrap: 'anywhere' }}
                     />
                     {errors[`item-${index}-description`] && (
@@ -372,12 +372,13 @@ export default function ReceiptForm({
                     )}
                   </div>
 
-                  <div>
+                  <div className="flex-shrink-0">
                     {formData.items && formData.items.length > 1 && (
                       <button
                         type="button"
                         onClick={() => removeItem(item.id)}
-                        className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600 transition-colors"
+                        className="px-3 md:px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600 transition-colors text-lg md:text-xl font-bold"
+                        aria-label="Remove item"
                       >
                         ×
                       </button>
@@ -389,7 +390,7 @@ export default function ReceiptForm({
           </div>
 
           {/* Subtotal Input */}
-          <div className="mt-4">
+          <div className="mt-3 md:mt-4">
             <label className="block text-sm font-medium text-gray-700 mb-1">
               Subtotal (LKR) <span className="text-red-500">*</span>
             </label>
@@ -401,7 +402,7 @@ export default function ReceiptForm({
               onChange={(e) => handleNumericChange(e, 'subtotal')}
               onFocus={(e) => handleNumericFocus(e, 'subtotal')}
               onBlur={(e) => handleNumericBlur(e, 'subtotal')}
-              className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-yellow ${
+              className={`w-full px-3 md:px-4 py-2 text-sm md:text-base border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-yellow ${
                 errors.subtotal ? 'border-red-500' : 'border-gray-300'
               }`}
               placeholder="0.00"
@@ -413,8 +414,8 @@ export default function ReceiptForm({
         </div>
 
         {/* Totals */}
-        <div className="space-y-4">
-          <h3 className="text-lg font-semibold text-primary-black border-b border-gray-200 pb-2">
+        <div className="space-y-3 md:space-y-4">
+          <h3 className="text-base md:text-lg font-semibold text-primary-black border-b border-gray-200 pb-2">
             Totals
           </h3>
 
@@ -438,7 +439,7 @@ export default function ReceiptForm({
                 onChange={(e) => handleNumericChange(e, 'discount')}
                 onFocus={(e) => handleNumericFocus(e, 'discount')}
                 onBlur={(e) => handleNumericBlur(e, 'discount')}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-yellow"
+                className="w-full px-3 md:px-4 py-2 text-sm md:text-base border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-yellow"
                 placeholder="0.00"
               />
             </div>
@@ -455,16 +456,16 @@ export default function ReceiptForm({
                 onChange={(e) => handleNumericChange(e, 'tax')}
                 onFocus={(e) => handleNumericFocus(e, 'tax')}
                 onBlur={(e) => handleNumericBlur(e, 'tax')}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-yellow"
+                className="w-full px-3 md:px-4 py-2 text-sm md:text-base border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-yellow"
                 placeholder="0.00"
               />
             </div>
 
-            <div className="flex justify-between pt-2 border-t-2 border-primary-black">
-              <span className="text-lg font-bold text-primary-black">
+            <div className="flex justify-between items-center pt-2 border-t-2 border-primary-black">
+              <span className="text-base md:text-lg font-bold text-primary-black">
                 Grand Total:
               </span>
-              <span className="text-lg font-bold text-primary-black">
+              <span className="text-base md:text-lg font-bold text-primary-black break-words">
                 {formatCurrency(formData.grandTotal || 0)}
               </span>
             </div>
@@ -481,7 +482,7 @@ export default function ReceiptForm({
             value={formData.notes || ''}
             onChange={handleInputChange}
             rows={4}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-yellow"
+            className="w-full px-3 md:px-4 py-2 text-sm md:text-base border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-yellow resize-y"
             placeholder="Enter any additional notes or terms..."
           />
         </div>

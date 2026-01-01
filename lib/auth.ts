@@ -35,6 +35,7 @@ export function login(username: string, password: string): boolean {
  * Logout user
  */
 export function logout(): void {
+  if (typeof window === 'undefined') return
   localStorage.removeItem('codify-authenticated')
   localStorage.removeItem('codify-username')
 }

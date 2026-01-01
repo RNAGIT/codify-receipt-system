@@ -29,17 +29,17 @@ export default function ReceiptPreview({ receipt }: ReceiptPreviewProps) {
   return (
     <div
       id="receipt-preview"
-      className="receipt-preview print-container w-full max-w-4xl mx-auto bg-white p-6 md:p-8 shadow-xl"
+      className="receipt-preview print-container w-full max-w-4xl mx-auto bg-white p-4 sm:p-6 md:p-8 shadow-xl"
     >
       {/* Company Header with Bill To */}
       <div className="mb-4 pb-4 border-b-2 border-primary-black">
-        <div className="flex items-start justify-between gap-6 mb-4">
-          <div className="flex items-center gap-3">
-            <div className="w-14 h-14 bg-primary-yellow rounded-lg flex items-center justify-center">
-              <span className="text-2xl font-bold text-primary-black">C</span>
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-4">
+          <div className="flex items-center gap-2 sm:gap-3">
+            <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 bg-primary-yellow rounded-lg flex items-center justify-center flex-shrink-0">
+              <span className="text-lg sm:text-xl md:text-2xl font-bold text-primary-black">C</span>
             </div>
             <div>
-              <h1 className="text-3xl font-bold text-primary-black tracking-tight">
+              <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-primary-black tracking-tight">
                 Codify
               </h1>
               <p className="text-xs text-gray-600 italic">
@@ -47,38 +47,38 @@ export default function ReceiptPreview({ receipt }: ReceiptPreviewProps) {
               </p>
             </div>
           </div>
-          <div className="text-right">
+          <div className="text-left sm:text-right">
             <p className="text-xs uppercase tracking-wider text-gray-500 font-semibold mb-1">
               Receipt / Invoice
             </p>
-            <p className="text-xl font-bold text-primary-black">
+            <p className="text-lg sm:text-xl font-bold text-primary-black break-words">
               #{receipt.receiptNumber}
             </p>
           </div>
         </div>
 
         {/* Bill To and Project in Header */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 md:gap-4 mt-4">
           <div className="bg-gray-50 p-3 rounded border border-gray-200">
             <h3 className="text-xs uppercase tracking-wider text-gray-500 font-bold mb-1">
               BILL TO:
             </h3>
-            <p className="text-sm font-bold text-primary-black mb-0.5">
+            <p className="text-sm font-bold text-primary-black mb-0.5 break-words">
               {receipt.clientName}
             </p>
-            <p className="text-xs text-gray-600">{receipt.clientEmail}</p>
+            <p className="text-xs text-gray-600 break-words">{receipt.clientEmail}</p>
           </div>
 
           <div className="bg-primary-yellow bg-opacity-10 p-3 rounded border-l-2 border-primary-yellow">
             <h3 className="text-xs uppercase tracking-wider text-gray-600 font-bold mb-1">
               PROJECT:
             </h3>
-            <p className="text-sm font-bold text-primary-black">
+            <p className="text-sm font-bold text-primary-black break-words">
               {receipt.projectTitle}
             </p>
           </div>
 
-          <div className="bg-gray-50 p-3 rounded border border-gray-200">
+          <div className="bg-gray-50 p-3 rounded border border-gray-200 sm:col-span-2 md:col-span-1">
             <p className="text-xs uppercase tracking-wider text-gray-500 font-bold mb-1">
               Issue Date:
             </p>
@@ -128,7 +128,7 @@ export default function ReceiptPreview({ receipt }: ReceiptPreviewProps) {
       {/* Totals */}
       <div className="mb-4">
         <div className="flex justify-end">
-          <div className="w-full md:w-80 bg-gray-50 p-4 rounded border border-gray-300">
+          <div className="w-full sm:w-80 bg-gray-50 p-3 md:p-4 rounded border border-gray-300">
             <div className="space-y-1.5">
               <div className="flex justify-between items-center py-1">
                 <span className="text-sm text-gray-700 font-medium">Subtotal:</span>
@@ -155,11 +155,11 @@ export default function ReceiptPreview({ receipt }: ReceiptPreviewProps) {
                 </div>
               )}
 
-              <div className="flex justify-between items-center pt-2 mt-2 border-t-2 border-primary-black">
-                <span className="text-lg font-bold text-primary-black uppercase">
+              <div className="flex justify-between items-center pt-2 mt-2 border-t-2 border-primary-black gap-2">
+                <span className="text-base md:text-lg font-bold text-primary-black uppercase">
                   Grand Total:
                 </span>
-                <span className="text-lg font-bold text-primary-black">
+                <span className="text-base md:text-lg font-bold text-primary-black break-words">
                   {formatCurrency(receipt.grandTotal)}
                 </span>
               </div>

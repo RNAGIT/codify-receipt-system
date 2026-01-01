@@ -69,29 +69,29 @@ export default function ReceiptViewPage() {
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
       <header className="bg-primary-black text-white shadow-lg">
-        <div className="container mx-auto px-4 py-6">
-          <div className="flex items-center justify-between">
+        <div className="container mx-auto px-4 py-4 md:py-6">
+          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
             <div className="flex items-center gap-3">
-              <div className="w-12 h-12 bg-primary-yellow rounded-lg flex items-center justify-center">
-                <span className="text-xl font-bold text-primary-black">C</span>
+              <div className="w-10 h-10 md:w-12 md:h-12 bg-primary-yellow rounded-lg flex items-center justify-center flex-shrink-0">
+                <span className="text-lg md:text-xl font-bold text-primary-black">C</span>
               </div>
               <div>
-                <h1 className="text-2xl font-bold">Codify</h1>
-                <p className="text-sm text-gray-300 italic">
+                <h1 className="text-xl md:text-2xl font-bold">Codify</h1>
+                <p className="text-xs md:text-sm text-gray-300 italic">
                   Where Code Meets Quality
                 </p>
               </div>
             </div>
-            <nav className="flex gap-4 items-center">
+            <nav className="flex flex-wrap gap-2 md:gap-4 items-center w-full md:w-auto">
               <Link
                 href="/dashboard"
-                className="px-4 py-2 border border-white rounded-lg font-semibold hover:bg-gray-800 transition-colors"
+                className="px-3 py-2 md:px-4 md:py-2 border border-white rounded-lg font-semibold hover:bg-gray-800 transition-colors text-sm md:text-base whitespace-nowrap"
               >
                 Create Receipt
               </Link>
               <Link
                 href="/receipts"
-                className="px-4 py-2 border border-white rounded-lg font-semibold hover:bg-gray-800 transition-colors"
+                className="px-3 py-2 md:px-4 md:py-2 border border-white rounded-lg font-semibold hover:bg-gray-800 transition-colors text-sm md:text-base whitespace-nowrap"
               >
                 View Receipts
               </Link>
@@ -102,14 +102,14 @@ export default function ReceiptViewPage() {
       </header>
 
       {/* Main Content */}
-      <main className="container mx-auto px-4 py-8">
-        <div className="mb-6">
+      <main className="container mx-auto px-4 py-6 md:py-8">
+        <div className="mb-4 md:mb-6">
           <Link
             href="/receipts"
-            className="text-primary-black hover:text-gray-700 font-semibold flex items-center gap-2"
+            className="text-primary-black hover:text-gray-700 font-semibold flex items-center gap-2 text-sm md:text-base"
           >
             <svg
-              className="w-5 h-5"
+              className="w-4 h-4 md:w-5 md:h-5"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -125,15 +125,15 @@ export default function ReceiptViewPage() {
           </Link>
         </div>
 
-        <div className="space-y-6">
+        <div className="space-y-4 md:space-y-6">
           {/* Payment Tracker */}
           <PaymentTracker
             receipt={receipt}
             onPaymentUpdate={handlePaymentUpdate}
           />
 
-          <div className="bg-white rounded-lg shadow-lg p-6">
-            <h2 className="text-2xl font-bold mb-6 text-primary-black">
+          <div className="bg-white rounded-lg shadow-lg p-4 md:p-6">
+            <h2 className="text-xl md:text-2xl font-bold mb-4 md:mb-6 text-primary-black break-words">
               Receipt #{receipt.receiptNumber}
             </h2>
 
@@ -149,9 +149,9 @@ export default function ReceiptViewPage() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-primary-black text-white mt-12 py-6">
+      <footer className="bg-primary-black text-white mt-8 md:mt-12 py-4 md:py-6">
         <div className="container mx-auto px-4 text-center">
-          <p className="text-gray-400">
+          <p className="text-xs md:text-sm text-gray-400">
             © {new Date().getFullYear()} Codify - Where Code Meets Quality
           </p>
         </div>

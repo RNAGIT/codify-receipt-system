@@ -91,15 +91,15 @@ export default function PaymentTracker({
   }
 
   return (
-    <div className="bg-white rounded-lg shadow-lg p-6 mb-6">
-      <div className="flex justify-between items-center mb-6">
-        <h3 className="text-xl font-bold text-primary-black">
+    <div className="bg-white rounded-lg shadow-lg p-4 md:p-6 mb-6">
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 mb-4 md:mb-6">
+        <h3 className="text-lg md:text-xl font-bold text-primary-black">
           Payment Tracking
         </h3>
         {receipt.paymentStatus !== 'Paid' && (
           <button
             onClick={() => setShowPaymentForm(!showPaymentForm)}
-            className="px-4 py-2 bg-primary-yellow text-primary-black rounded-lg font-semibold hover:bg-yellow-400 transition-colors"
+            className="px-4 py-2 bg-primary-yellow text-primary-black rounded-lg font-semibold hover:bg-yellow-400 transition-colors text-sm md:text-base whitespace-nowrap"
           >
             {showPaymentForm ? 'Cancel' : '+ Add Payment'}
           </button>
@@ -107,22 +107,22 @@ export default function PaymentTracker({
       </div>
 
       {/* Payment Summary */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-        <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
-          <p className="text-sm text-gray-600 mb-1">Grand Total</p>
-          <p className="text-2xl font-bold text-primary-black">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 md:gap-4 mb-4 md:mb-6">
+        <div className="bg-gray-50 p-3 md:p-4 rounded-lg border border-gray-200">
+          <p className="text-xs md:text-sm text-gray-600 mb-1">Grand Total</p>
+          <p className="text-xl md:text-2xl font-bold text-primary-black break-words">
             {formatCurrency(receipt.grandTotal)}
           </p>
         </div>
-        <div className="bg-green-50 p-4 rounded-lg border border-green-200">
-          <p className="text-sm text-gray-600 mb-1">Paid Amount</p>
-          <p className="text-2xl font-bold text-green-700">
+        <div className="bg-green-50 p-3 md:p-4 rounded-lg border border-green-200">
+          <p className="text-xs md:text-sm text-gray-600 mb-1">Paid Amount</p>
+          <p className="text-xl md:text-2xl font-bold text-green-700 break-words">
             {formatCurrency(paidAmount)}
           </p>
         </div>
-        <div className="bg-red-50 p-4 rounded-lg border border-red-200">
-          <p className="text-sm text-gray-600 mb-1">Remaining</p>
-          <p className="text-2xl font-bold text-red-700">
+        <div className="bg-red-50 p-3 md:p-4 rounded-lg border border-red-200">
+          <p className="text-xs md:text-sm text-gray-600 mb-1">Remaining</p>
+          <p className="text-xl md:text-2xl font-bold text-red-700 break-words">
             {formatCurrency(remainingAmount)}
           </p>
         </div>
@@ -130,11 +130,11 @@ export default function PaymentTracker({
 
       {/* Payment Form */}
       {showPaymentForm && receipt.paymentStatus !== 'Paid' && (
-        <div className="bg-gray-50 p-6 rounded-lg border border-gray-300 mb-6">
-          <h4 className="text-lg font-semibold text-primary-black mb-4">
+        <div className="bg-gray-50 p-4 md:p-6 rounded-lg border border-gray-300 mb-4 md:mb-6">
+          <h4 className="text-base md:text-lg font-semibold text-primary-black mb-3 md:mb-4">
             Add New Payment
           </h4>
-          <div className="space-y-4">
+          <div className="space-y-3 md:space-y-4">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">
                 Payment Amount (LKR) <span className="text-red-500">*</span>
@@ -153,10 +153,10 @@ export default function PaymentTracker({
                   }
                   setPaymentAmount(inputValue)
                 }}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-yellow"
+                className="w-full px-3 md:px-4 py-2 text-sm md:text-base border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-yellow"
                 placeholder={`Max: ${formatCurrency(remainingAmount)}`}
               />
-              <p className="text-xs text-gray-500 mt-1">
+              <p className="text-xs text-gray-500 mt-1 break-words">
                 Remaining balance: {formatCurrency(remainingAmount)}
               </p>
             </div>
@@ -169,7 +169,7 @@ export default function PaymentTracker({
                 type="date"
                 value={paymentDate}
                 onChange={(e) => setPaymentDate(e.target.value)}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-yellow"
+                className="w-full px-3 md:px-4 py-2 text-sm md:text-base border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-yellow"
               />
             </div>
 
@@ -181,7 +181,7 @@ export default function PaymentTracker({
                 value={paymentNotes}
                 onChange={(e) => setPaymentNotes(e.target.value)}
                 rows={2}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-yellow"
+                className="w-full px-3 md:px-4 py-2 text-sm md:text-base border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-yellow resize-y"
                 placeholder="Payment method, reference number, etc."
               />
             </div>
@@ -189,7 +189,7 @@ export default function PaymentTracker({
             <button
               onClick={handleAddPayment}
               disabled={isSubmitting}
-              className="w-full px-6 py-3 bg-primary-black text-white rounded-lg font-semibold hover:bg-gray-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full px-4 py-2 md:px-6 md:py-3 bg-primary-black text-white rounded-lg font-semibold hover:bg-gray-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-sm md:text-base"
             >
               {isSubmitting ? 'Processing...' : 'Record Payment'}
             </button>
@@ -200,29 +200,29 @@ export default function PaymentTracker({
       {/* Payment History */}
       {payments.length > 0 && (
         <div>
-          <h4 className="text-lg font-semibold text-primary-black mb-4">
+          <h4 className="text-base md:text-lg font-semibold text-primary-black mb-3 md:mb-4">
             Payment History
           </h4>
           <div className="space-y-3">
             {payments.map((payment, index) => (
               <div
                 key={payment.id}
-                className="bg-gray-50 p-4 rounded-lg border border-gray-200 flex justify-between items-start"
+                className="bg-gray-50 p-3 md:p-4 rounded-lg border border-gray-200 flex flex-col sm:flex-row justify-between items-start gap-3"
               >
-                <div className="flex-1">
-                  <div className="flex items-center gap-3 mb-2">
-                    <span className="bg-primary-yellow text-primary-black px-3 py-1 rounded-full text-xs font-bold">
+                <div className="flex-1 min-w-0 w-full">
+                  <div className="flex flex-wrap items-center gap-2 md:gap-3 mb-2">
+                    <span className="bg-primary-yellow text-primary-black px-2 md:px-3 py-1 rounded-full text-xs font-bold whitespace-nowrap">
                       Payment #{index + 1}
                     </span>
-                    <span className="text-sm text-gray-600">
+                    <span className="text-xs md:text-sm text-gray-600">
                       {formatDate(payment.paymentDate)}
                     </span>
                   </div>
-                  <p className="text-xl font-bold text-primary-black">
+                  <p className="text-lg md:text-xl font-bold text-primary-black break-words">
                     {formatCurrency(payment.amount)}
                   </p>
                   {payment.notes && (
-                    <p className="text-sm text-gray-600 mt-1">
+                    <p className="text-xs md:text-sm text-gray-600 mt-1 break-words">
                       {payment.notes}
                     </p>
                   )}
@@ -235,11 +235,11 @@ export default function PaymentTracker({
 
       {/* Paid Status */}
       {receipt.paymentStatus === 'Paid' && receipt.paidDate && (
-        <div className="mt-6 p-4 bg-green-50 border border-green-200 rounded-lg">
+        <div className="mt-4 md:mt-6 p-3 md:p-4 bg-green-50 border border-green-200 rounded-lg">
           <p className="text-sm text-green-700 font-semibold mb-1">
             ✓ Fully Paid
           </p>
-          <p className="text-sm text-green-600">
+          <p className="text-xs md:text-sm text-green-600">
             Paid on: {formatDate(receipt.paidDate)}
           </p>
         </div>

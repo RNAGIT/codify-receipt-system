@@ -94,29 +94,29 @@ export default function ReceiptsPage() {
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
       <header className="bg-primary-black text-white shadow-lg">
-        <div className="container mx-auto px-4 py-6">
-          <div className="flex items-center justify-between">
+        <div className="container mx-auto px-4 py-4 md:py-6">
+          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
             <div className="flex items-center gap-3">
-              <div className="w-12 h-12 bg-primary-yellow rounded-lg flex items-center justify-center">
-                <span className="text-xl font-bold text-primary-black">C</span>
+              <div className="w-10 h-10 md:w-12 md:h-12 bg-primary-yellow rounded-lg flex items-center justify-center flex-shrink-0">
+                <span className="text-lg md:text-xl font-bold text-primary-black">C</span>
               </div>
               <div>
-                <h1 className="text-2xl font-bold">Codify</h1>
-                <p className="text-sm text-gray-300 italic">
+                <h1 className="text-xl md:text-2xl font-bold">Codify</h1>
+                <p className="text-xs md:text-sm text-gray-300 italic">
                   Where Code Meets Quality
                 </p>
               </div>
             </div>
-            <nav className="flex gap-4 items-center">
+            <nav className="flex flex-wrap gap-2 md:gap-4 items-center w-full md:w-auto">
               <Link
                 href="/dashboard"
-                className="px-4 py-2 border border-white rounded-lg font-semibold hover:bg-gray-800 transition-colors"
+                className="px-3 py-2 md:px-4 md:py-2 border border-white rounded-lg font-semibold hover:bg-gray-800 transition-colors text-sm md:text-base whitespace-nowrap"
               >
                 Create Receipt
               </Link>
               <Link
                 href="/receipts"
-                className="px-4 py-2 bg-primary-yellow text-primary-black rounded-lg font-semibold hover:bg-yellow-400 transition-colors"
+                className="px-3 py-2 md:px-4 md:py-2 bg-primary-yellow text-primary-black rounded-lg font-semibold hover:bg-yellow-400 transition-colors text-sm md:text-base whitespace-nowrap"
               >
                 View Receipts
               </Link>
@@ -127,19 +127,19 @@ export default function ReceiptsPage() {
       </header>
 
       {/* Main Content */}
-      <main className="container mx-auto px-4 py-8">
-        <div className="mb-6">
-          <h2 className="text-3xl font-bold text-primary-black">
+      <main className="container mx-auto px-4 py-6 md:py-8">
+        <div className="mb-4 md:mb-6">
+          <h2 className="text-2xl md:text-3xl font-bold text-primary-black">
             Saved Receipts
           </h2>
         </div>
 
         {/* Status Filter Tabs */}
-        <div className="mb-6">
+        <div className="mb-4 md:mb-6">
           <div className="flex flex-wrap gap-2 mb-4">
             <button
               onClick={() => setStatusFilter('All')}
-              className={`px-6 py-2 rounded-lg font-semibold transition-colors ${
+              className={`px-3 py-1.5 md:px-6 md:py-2 rounded-lg font-semibold transition-colors text-sm md:text-base ${
                 statusFilter === 'All'
                   ? 'bg-primary-black text-white'
                   : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
@@ -149,7 +149,7 @@ export default function ReceiptsPage() {
             </button>
             <button
               onClick={() => setStatusFilter('Pending')}
-              className={`px-6 py-2 rounded-lg font-semibold transition-colors ${
+              className={`px-3 py-1.5 md:px-6 md:py-2 rounded-lg font-semibold transition-colors text-sm md:text-base ${
                 statusFilter === 'Pending'
                   ? 'bg-red-500 text-white'
                   : 'bg-red-100 text-red-700 hover:bg-red-200'
@@ -159,7 +159,7 @@ export default function ReceiptsPage() {
             </button>
             <button
               onClick={() => setStatusFilter('Partial')}
-              className={`px-6 py-2 rounded-lg font-semibold transition-colors ${
+              className={`px-3 py-1.5 md:px-6 md:py-2 rounded-lg font-semibold transition-colors text-sm md:text-base ${
                 statusFilter === 'Partial'
                   ? 'bg-yellow-500 text-white'
                   : 'bg-yellow-100 text-yellow-700 hover:bg-yellow-200'
@@ -169,7 +169,7 @@ export default function ReceiptsPage() {
             </button>
             <button
               onClick={() => setStatusFilter('Paid')}
-              className={`px-6 py-2 rounded-lg font-semibold transition-colors ${
+              className={`px-3 py-1.5 md:px-6 md:py-2 rounded-lg font-semibold transition-colors text-sm md:text-base ${
                 statusFilter === 'Paid'
                   ? 'bg-green-500 text-white'
                   : 'bg-green-100 text-green-700 hover:bg-green-200'
@@ -186,10 +186,10 @@ export default function ReceiptsPage() {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search by client name or receipt number..."
-              className="w-full px-4 py-3 pl-12 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-yellow text-lg"
+              className="w-full px-4 py-2 md:py-3 pl-10 md:pl-12 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-yellow text-sm md:text-base"
             />
             <svg
-              className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400"
+              className="absolute left-3 md:left-4 top-1/2 transform -translate-y-1/2 w-4 h-4 md:w-5 md:h-5 text-gray-400"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -232,9 +232,9 @@ export default function ReceiptsPage() {
         </div>
 
         {filteredReceipts.length === 0 ? (
-          <div className="bg-white rounded-lg shadow-lg p-12 text-center">
+          <div className="bg-white rounded-lg shadow-lg p-8 md:p-12 text-center">
             <svg
-              className="w-24 h-24 mx-auto text-gray-400 mb-4"
+              className="w-16 h-16 md:w-24 md:h-24 mx-auto text-gray-400 mb-4"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -246,39 +246,39 @@ export default function ReceiptsPage() {
                 d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
               />
             </svg>
-            <h3 className="text-xl font-semibold text-gray-700 mb-2">
+            <h3 className="text-lg md:text-xl font-semibold text-gray-700 mb-2">
               {searchQuery ? 'No Receipts Found' : 'No Receipts Found'}
             </h3>
-            <p className="text-gray-500 mb-6">
+            <p className="text-sm md:text-base text-gray-500 mb-6 break-words">
               {searchQuery
                 ? `No receipts match "${searchQuery}". Try a different search.`
                 : 'Start by creating your first receipt'}
             </p>
             <Link
               href="/dashboard"
-              className="inline-block px-6 py-3 bg-primary-yellow text-primary-black rounded-lg font-semibold hover:bg-yellow-400 transition-colors"
+              className="inline-block px-4 py-2 md:px-6 md:py-3 bg-primary-yellow text-primary-black rounded-lg font-semibold hover:bg-yellow-400 transition-colors text-sm md:text-base"
             >
               Create Receipt
             </Link>
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
             {filteredReceipts.map((receipt) => (
               <div
                 key={receipt.id}
-                className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow"
+                className="bg-white rounded-lg shadow-lg p-4 md:p-6 hover:shadow-xl transition-shadow"
               >
-                <div className="flex justify-between items-start mb-4">
-                  <div>
-                    <h3 className="text-lg font-bold text-primary-black">
+                <div className="flex justify-between items-start mb-4 gap-2">
+                  <div className="flex-1 min-w-0">
+                    <h3 className="text-base md:text-lg font-bold text-primary-black break-words">
                       {receipt.projectTitle || 'Untitled Project'}
                     </h3>
-                    <p className="text-sm text-gray-600">
+                    <p className="text-xs md:text-sm text-gray-600 break-words">
                       #{receipt.receiptNumber}
                     </p>
                   </div>
                   <span
-                    className={`px-3 py-1 rounded-full text-xs font-semibold ${getStatusColor(
+                    className={`px-2 md:px-3 py-1 rounded-full text-xs font-semibold whitespace-nowrap flex-shrink-0 ${getStatusColor(
                       receipt.paymentStatus
                     )}`}
                   >
@@ -287,20 +287,20 @@ export default function ReceiptsPage() {
                 </div>
 
                 <div className="space-y-2 mb-4">
-                  <p className="text-sm text-gray-600">
+                  <p className="text-xs md:text-sm text-gray-600 break-words">
                     <span className="font-semibold">Client:</span>{' '}
                     {receipt.clientName}
                   </p>
-                  <p className="text-sm text-gray-600">
+                  <p className="text-xs md:text-sm text-gray-600">
                     <span className="font-semibold">Date:</span>{' '}
                     {formatDate(receipt.issueDate)}
                   </p>
                   <div>
-                    <p className="text-lg font-bold text-primary-black">
+                    <p className="text-base md:text-lg font-bold text-primary-black break-words">
                       Total: {formatCurrency(receipt.grandTotal)}
                     </p>
                     {receipt.paidAmount !== undefined && receipt.paidAmount > 0 && (
-                      <p className="text-sm text-gray-600 mt-1">
+                      <p className="text-xs md:text-sm text-gray-600 mt-1 break-words">
                         Paid: {formatCurrency(receipt.paidAmount)}
                         {receipt.paymentStatus === 'Partial' && (
                           <span className="text-red-600 ml-2">
@@ -312,23 +312,23 @@ export default function ReceiptsPage() {
                   </div>
                 </div>
 
-                <div className="flex gap-2">
+                <div className="flex flex-wrap gap-2">
                   <Link
                     href={`/receipts/${receipt.id}`}
-                    className="flex-1 px-4 py-2 bg-primary-black text-white rounded-lg font-semibold hover:bg-gray-800 transition-colors text-center text-sm"
+                    className="flex-1 min-w-[80px] px-3 py-2 md:px-4 bg-primary-black text-white rounded-lg font-semibold hover:bg-gray-800 transition-colors text-center text-xs md:text-sm"
                   >
                     View
                   </Link>
                   <Link
                     href={`/dashboard?edit=${receipt.id}`}
-                    className="flex-1 px-4 py-2 bg-primary-yellow text-primary-black rounded-lg font-semibold hover:bg-yellow-400 transition-colors text-center text-sm"
+                    className="flex-1 min-w-[80px] px-3 py-2 md:px-4 bg-primary-yellow text-primary-black rounded-lg font-semibold hover:bg-yellow-400 transition-colors text-center text-xs md:text-sm"
                   >
                     Edit
                   </Link>
                   {receipt.paymentStatus === 'Pending' ? (
                     <button
                       onClick={() => handleDelete(receipt.id)}
-                      className="px-4 py-2 bg-red-500 text-white rounded-lg font-semibold hover:bg-red-600 transition-colors text-sm"
+                      className="flex-1 min-w-[80px] px-3 py-2 md:px-4 bg-red-500 text-white rounded-lg font-semibold hover:bg-red-600 transition-colors text-xs md:text-sm"
                     >
                       Delete
                     </button>
@@ -336,7 +336,7 @@ export default function ReceiptsPage() {
                     <button
                       disabled
                       title="Cannot delete receipts with Partial or Paid status"
-                      className="px-4 py-2 bg-gray-300 text-gray-500 rounded-lg font-semibold cursor-not-allowed text-sm"
+                      className="flex-1 min-w-[80px] px-3 py-2 md:px-4 bg-gray-300 text-gray-500 rounded-lg font-semibold cursor-not-allowed text-xs md:text-sm"
                     >
                       Delete
                     </button>
@@ -349,9 +349,9 @@ export default function ReceiptsPage() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-primary-black text-white mt-12 py-6">
+      <footer className="bg-primary-black text-white mt-8 md:mt-12 py-4 md:py-6">
         <div className="container mx-auto px-4 text-center">
-          <p className="text-gray-400">
+          <p className="text-xs md:text-sm text-gray-400">
             © {new Date().getFullYear()} Codify - Where Code Meets Quality
           </p>
         </div>
